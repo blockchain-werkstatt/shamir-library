@@ -6,6 +6,14 @@ this library is the implementation of Shamir Secret sharing (https://en.wikipedi
 ```sh
 $ npm install --save git+ssh://git@gitlab.fokus.fraunhofer.de:Secret_Sharing/library.git
 ```
+
+or 
+```sh
+$ git clone git@gitlab.fokus.fraunhofer.de:Secret_Sharing/library.git
+$ cd {your_project_directory}
+$ npm install --save {PATH_TO_SECRET_SHARING_LIBRARY}
+```
+
 # Usages
 1. to secure the and share the private key 
 **eg. 0xC2D7CF95645D33006175B78989035C7c9061d3F9**
@@ -76,3 +84,25 @@ console.log('recovery key is : '+ privatekey);
 1. to secure the and share the Mnemonic
 **eg. witch collapse practice feed shame open despair creek road again ice least**
 (https://en.bitcoin.it/wiki/Seed_phrase)
+
+```sh
+const { split , combine } = require('secretkeysharing')
+const { prime512 , prime3217 , prime19937 } = require('secretkeysharing')
+const { encode , decode  } = require('secretkeysharing')
+
+//Encode the string
+var encoded_string = encode('witch collapse practice feed shame open despair creek road again ice least');
+
+//Spit function
+var splits = split(encoded_string, 6, 3 , prime512 );
+
+//combine function
+var privatekey = combine([splits[1],splits[3],splits[2]],prime512).toHex();
+
+//Decode the key
+var decoded_string = decode(privatekey)
+
+console.log(decoded_string);
+// output :
+// witch collapse practice feed shame open despair creek road again ice least
+```
