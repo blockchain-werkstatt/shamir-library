@@ -20,8 +20,8 @@ $ npm install --save {PATH_TO_SECRET_SHARING_LIBRARY}
 (https://theethereum.wiki/w/index.php/Accounts,_Addresses,_Public_And_Private_Keys,_And_Tokens)
 
 ```sh
-const { split , combine } = require('secretkeysharing')
-const { prime512 , prime3217 , prime19937 } = require('secretkeysharing')
+import { split , combine } from 'secretkeysharing'
+import { prime512 , prime3217 , prime19937 } from 'secretkeysharing'
 
 /**
  * split function takes 4 inputs 
@@ -86,9 +86,9 @@ console.log('recovery key is : '+ privatekey);
 (https://en.bitcoin.it/wiki/Seed_phrase)
 
 ```sh
-const { split , combine } = require('secretkeysharing')
-const { prime512 , prime3217 , prime19937 } = require('secretkeysharing')
-const { encode , decode  } = require('secretkeysharing')
+import { split , combine } from 'secretkeysharing'
+import { prime512 , prime3217 , prime19937 } from 'secretkeysharing'
+import { encode , decode } from 'secretkeysharing'
 
 //Encode the string
 var encoded_string = encode('witch collapse practice feed shame open despair creek road again ice least');
