@@ -10,7 +10,8 @@
     "prepare": "babel -d lib/ src/",
     "prepare:watch": "npm run prepare -- -w",
     "prepublish": "npm run prepare",
-    "test": ""
+    "test": "",
+    "publish_nexus": "npm-publish-nexus --domain=https://paca.fokus.fraunhofer.de --repo=secret-key-sharing"
   },
   "author": "Har Preet Singh",
   "license": "ISC",
@@ -28,6 +29,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "npm-publish-nexus": "^0.1.4"
   }
 }

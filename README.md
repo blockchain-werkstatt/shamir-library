@@ -13,7 +13,13 @@ $ git clone git@gitlab.fokus.fraunhofer.de:Secret_Sharing/library.git
 $ cd {your_project_directory}
 $ npm install --save {PATH_TO_SECRET_SHARING_LIBRARY}
 ```
-
+# Publishing the Package to Nexus Repository 
+to publish the package on the Nexus Package Manager  Host : (http://paca.fokus.fraunhofer.de)
+```sh
+$ export NPM_NEXUS_PUBLISHER_EMAIL={YOUR_EMAIL_ADDRESS}
+$ export NPM_NEXUS_PUBLISHER_AUTH={BASE64(username:password)}
+$ npm run publish_nexus
+```
 # Usages
 1. to secure the and share the private key 
 **eg. 0xC2D7CF95645D33006175B78989035C7c9061d3F9**
