@@ -1,12 +1,12 @@
 import Buffer from 'buffer'
 
 const encode = (text)=>{
-    return '0x'+Buffer.from(text).toString("hex");
+    return '0x'+Buffer.Buffer.from(text).toString("hex");
 }
 
 const decode = (hex)=>{
     var temp_hex = hex.replace('0x',''); 
-    return Buffer.from(temp_hex, "hex").toString();
+    return Buffer.Buffer.from(temp_hex, "hex").toString();
 }
 
 module.exports = {
