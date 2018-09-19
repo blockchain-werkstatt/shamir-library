@@ -1,5 +1,6 @@
-global.crypto = require('crypto')
-const Decimal = require('decimal.js');
+import crypto from 'crypto';
+global.crypto = crypto;
+import Decimal from 'decimal.js';
 
 Decimal.set({ rounding: 5 });
 Decimal.set({ modulo: Decimal.ROUND_FLOOR });

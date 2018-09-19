@@ -1,4 +1,4 @@
-const Buffer = require('buffer/').Buffer
+import Buffer from 'buffer'
 
 const encode = (text)=>{
     return '0x'+Buffer.from(text).toString("hex");
