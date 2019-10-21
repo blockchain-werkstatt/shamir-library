@@ -67,11 +67,17 @@ const combine_qna = (publicshare, questions, answers, publicAddress) => {
 
 
 
+
+
+
+
+
+// calling split
     const questions = [config.questions[0], config.questions[1], config.questions[2], config.questions[3], config.questions[4]];
     const answers = ['harpreet', 'kaur', 'allahabad', 'montu', 'suzuki'];
     const public_share = split_qna('0xC2D7CF95645D33006175B78989035C7c9061d3F9', 3, questions, answers, '0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413');
     console.log('public_share is : ' + public_share);
-
+// calling combine
     // // should be greater than 3 else won't work
     const questions_recovery = [config.questions[0], config.questions[1], config.questions[2], config.questions[3], config.questions[4]];
     const answers_recovery = ['harpreet', 'kaur', 'allahabad', 'montu', 'suzuki'];
