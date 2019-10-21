@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "start": "npm run prepare && babel index.js --out-file output.js  && node output.js",
     "prepare": "babel -d lib/ src/",
     "prepare:watch": "npm run prepare -- -w",
     "prepublish": "npm run prepare",
