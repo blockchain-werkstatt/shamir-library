@@ -1,5 +1,16 @@
 # Secret Key Sharing Library
 
+# important
+try
+
+```sh
+npm install
+npm start
+```
+rough implementation exists in src/index.js
+(it might be breaking some time coz its a PoC only)
+
+
 this library is the implementation of Shamir Secret sharing (https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing) and developed in and for NodeJS.
 # Installation
 
