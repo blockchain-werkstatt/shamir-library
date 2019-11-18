@@ -1,18 +1,17 @@
 {
   "name": "secretkeysharing",
   "version": "1.0.0",
-  "description": "library for shamir sceret sharing implementation ",
+  "description": "library for shamir sceret sharing implementation with qna",
   "main": "lib/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "start": "npm run prepare && babel index.js --out-file output.js  && node output.js",
+    "start": "npm run prepare && babel example/example.js --out-file example/output.js  && node example/output.js",
     "prepare": "babel -d lib/ src/",
     "prepare:watch": "npm run prepare -- -w",
     "prepublish": "npm run prepare",
-    "test": "",
-    "publish_nexus": "npm-publish-nexus --domain=https://paca.fokus.fraunhofer.de --repo=secret-key-sharing"
+    "test": ""
   },
   "author": "Har Preet Singh",
   "license": "ISC",
