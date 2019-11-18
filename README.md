@@ -1,4 +1,7 @@
 # Secret Key Sharing Library
+[![dependencies Status](https://img.shields.io/david/blockchain-werkstatt/shamir-library)](https://img.shields.io/david/blockchain-werkstatt/shamir-library)
+[![devDependencies Status](https://img.shields.io/david/dev/blockchain-werkstatt/shamir-library)](https://img.shields.io/david/dev/blockchain-werkstatt/shamir-library)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 # important for demo
 
