@@ -17,8 +17,13 @@ const decrypt = (key, text) =>{
     return dec;
   }
 
-const split_qna = (secret, no_of_combination, questions, answers, publicAddress) => {
-    var splits = split(secret, questions.length, no_of_combination , prime512 );
+const split_qna = (secret, no_of_combination, questions, answers, publicAddress, type) => {
+    var splits = '';
+    if(type === 'hex') {
+        splits = split(secret, questions.length, no_of_combination , prime512 );
+    } else {
+        splits = split(secret, questions.length, no_of_combination , prime3217 );
+    }
     var answersEncrypted = [];
     var questionEncrypted = [];    
     splits.forEach((split, index) => {
@@ -34,7 +39,7 @@ const split_qna = (secret, no_of_combination, questions, answers, publicAddress)
     }
 
 
-const combine_qna = (originalquestions, publicshare, questions, answers, publicAddress) => {
+const combine_qna = (originalquestions, publicshare, questions, answers, publicAddress, type) => {
     const originalQuestionSet = originalquestions;
     var questionDecrpted = JSON.parse(decrypt(publicAddress, publicshare));
     var answerDecrpted = [];
@@ -52,7 +57,12 @@ const combine_qna = (originalquestions, publicshare, questions, answers, publicA
             originalSpits.push(JSON.parse(decrpted));
         }
     });
-    var secret = combine(originalSpits, prime512);
+    var secret = '';
+    if(type === 'hex') {
+        secret = combine(originalSpits, prime512);
+    } else  {
+        secret = combine(originalSpits, prime3217);
+    }
     return secret.toHex();
 }
 
