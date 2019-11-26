@@ -1,4 +1,5 @@
-import {split_qna ,combine_qna } from '../lib/core/qna';
+import {split_qna ,combine_qna} from '../lib/core/qna';
+import { encode , decode } from '../lib/core/hex'
 import { questions } from '../lib/config/config';
 
 // calling split
@@ -13,3 +14,14 @@ import { questions } from '../lib/config/config';
     const answers_recovery = ['answer1', 'answer2', 'answer3'];
     const secret = combine_qna(questions, public_share, questions_recovery, answers_recovery, '0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413', 'hex');
     console.log('recoverd secret is : ' + secret);
+
+
+    // calling split
+    const mnemonic = "media badge grid crunch pair captain add cigar ridge either crack private";
+    const public_share_mnemonic = split_qna(encode(mnemonic), 3, questions_list, answers, '0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413', 'mnemonic');
+    console.log('share is: '+ public_share_mnemonic);
+    
+// calling combine
+// should be greater than 3 else won't work
+    const recovered_mnemonic = combine_qna(questions, public_share_mnemonic, questions_recovery, answers_recovery, '0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413', 'mnemonic');
+    console.log('recoverd mnemonic is : ' + decode(recovered_mnemonic));

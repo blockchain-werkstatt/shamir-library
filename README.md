@@ -31,6 +31,7 @@ npm install --save secretkeysharing
 
 ```js
 import { split_qna , combine_qna, questions } from 'secretkeysharing'
+import { encode , decode } from 'secretkeysharing'
 // calling split
 const questions_list = [questions[0], questions[1], questions[2], questions[3], questions[4]];
 const answers = ['answer1', 'answer2', 'answer3', 'answer4', 'answer5'];
@@ -45,6 +46,17 @@ const answers_recovery = ['answer1', 'answer2', 'answer3'];
 const secret = combine_qna(questions, public_share, questions_recovery, answers_recovery, '0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413');
 // will return the recovered secret
 console.log('recoverd secret is : ' + secret);
+
+    //for mnemonic
+    // calling split
+    const mnemonic = "media badge grid crunch pair captain add cigar ridge either crack private";
+    const public_share_mnemonic = split_qna(encode(mnemonic), 3, questions_list, answers, '0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413', 'mnemonic');
+    console.log('share is: '+ public_share_mnemonic);
+    
+// calling combine
+// should be greater than 3 else won't work
+    const recovered_mnemonic = combine_qna(questions, public_share_mnemonic, questions_recovery, answers_recovery, '0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413', 'mnemonic');
+    console.log('recoverd mnemonic is : ' + decode(recovered_mnemonic));
 ```
 
 ### 2.Secure and share the private key

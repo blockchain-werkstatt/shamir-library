@@ -1,6 +1,6 @@
 {
   "name": "secretkeysharing",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "library for shamir sceret sharing implementation with qna",
   "main": "lib/index.js",
   "directories": {
