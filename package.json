@@ -13,8 +13,23 @@
     "prepublish": "npm run prepare",
     "test": ""
   },
-  "author": "Har Preet Singh",
-  "license": "ISC",
+"repository": {
+    "type": "git",
+    "url": "git+https://github.com/blockchain-werkstatt/shamir-library.git"
+  },
+  "keywords": [
+    "npm",
+    "node",
+    "javascript",
+    "shamir secret sharing",
+    "blockchain"
+  ],
+  "author": "Har Preet Singh <harpreet.singh@fiware.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blockchain-werkstatt/shamir-library/issues"
+  },
+  "homepage": "https://github.com/blockchain-werkstatt/shamir-library#readme",
   "dependencies": {
     "big-integer": "^1.6.26",
     "buffer": "^5.2.1",
