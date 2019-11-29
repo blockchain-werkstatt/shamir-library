@@ -7,13 +7,13 @@
     "test": "test"
   },
   "scripts": {
-    "start": "npm run prepare && babel example/example.js --out-file example/output.js  && node example/output.js",
-    "prepare": "babel -d lib/ src/",
-    "prepare:watch": "npm run prepare -- -w",
-    "prepublish": "npm run prepare",
-    "test": ""
+    "start": "npm run build && babel example/example.js --out-file example/output.js  && node example/output.js",
+    "build": "babel -d lib/ src/",
+    "build:watch": "npm run build -- -w",
+    "postinstall": "npm run build",
+    "test": "mocha --require babel-core/register --require babel-polyfill --recursive"
   },
-"repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/blockchain-werkstatt/shamir-library.git"
   },
@@ -45,6 +45,6 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "mocha": "^5.2.0",
-    "npm-publish-nexus": "^0.1.4"
+    "chai": "^4.2.0"
   }
 }

@@ -1,3 +1,6 @@
+/**
+ * list of questions for the qna functions
+ */
 const questions =  [
     "What TV series do you keep coming back to and re-watching",
     "What took you way too long to figure out",

@@ -31,48 +31,30 @@ npm install --save secretkeysharing
 ```js
 //import functions from the library
 import { split_qna , combine_qna, questions } from 'secretkeysharing'
-import { encode , decode } from 'secretkeysharing'
 
-// question list
+// questions
 const questions_list = [questions[0], questions[1], questions[2], questions[3], questions[4]];
 
-// your answers
-const answers = ['answer1', 'answer2', 'answer3', 'answer4', 'answer5'];
-
-// calling split
-const public_share = split_qna('0xC2D7CF95645D33006175B78989035C7c9061d3F9', 3, questions_list, answers, '0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413', 'hex');
-
-// public share can share or save anywhere
-console.log('share is: '+ public_share);
-
-// calling combine
-// should be greater than 3 else won't work
-const questions_recovery = [{i:0, q:questions_list[0]}, {i:1, q:questions_list[1]}, {i:2, q:questions_list[2]}];
-
-// your answers (should be correct)
-const answers_recovery = ['answer1', 'answer2', 'answer3'];
-
-//calling combine
-const secret = combine_qna(questions, public_share, questions_recovery, answers_recovery, '0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413', 'hex');
-
-// will return the recovered secret
-console.log('recoverd secret is : ' + secret);
-
-//in case of  mnemonic
-const mnemonic = "media badge grid crunch pair captain add cigar ridge either crack private";
-
-// calling split and encode the mnemonic
-const public_share_mnemonic = split_qna(encode(mnemonic), 3, questions_list, answers, '0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413', 'mnemonic');
-
-// public share can share or save anywhere
-console.log('share is: '+ public_share_mnemonic);
+// answers
+const answers = ['bigbang', 'go', 'study', 'skydiving', 'swimming'];
+// calling split_qna
+// public share, can be store anywhere
+const public_share = split_qna('0xC2D7CF95645D33006175B78989035C7c9061d3F9', 3, questions_list, answers, 'hex');
     
 // calling combine
-// should be greater than 3 else won't work
-const recovered_mnemonic = combine_qna(questions, public_share_mnemonic, questions_recovery, answers_recovery, '0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413', 'mnemonic');
+const secret = combine_qna( public_share, [questions[0], questions[1], questions[2]], ['bigbang', 'go', 'study'] , 'hex');
+console.log('recoverd secret is : ' + secret);
 
-// will return the recovered secret and decode it to get the mnemonic
-console.log('recoverd mnemonic is : ' + decode(recovered_mnemonic));
+// mnemonic
+const mnemonic = "media badge grid crunch pair captain add cigar ridge either crack private";
+
+// public share, can be store anywhere
+const public_share_mnemonic = split_qna( mnemonic, 3, questions_list, answers, 'mnemonic');
+    
+// calling combine
+const recovered_mnemonic = combine_qna( public_share_mnemonic, questions_recovery, answers_recovery , 'mnemonic');
+
+console.log('recoverd mnemonic is : ' + recovered_mnemonic);
 ```
 
 ### 2.Secure and share the private key
