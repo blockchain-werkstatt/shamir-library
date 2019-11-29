@@ -1,6 +1,6 @@
 {
   "name": "secretkeysharing",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "library for shamir sceret sharing implementation with qna",
   "main": "lib/index.js",
   "directories": {
@@ -10,7 +10,6 @@
     "start": "npm run build && babel example/example.js --out-file example/output.js  && node example/output.js",
     "build": "babel -d lib/ src/",
     "build:watch": "npm run build -- -w",
-    "postinstall": "npm run build",
     "test": "mocha --require babel-core/register --require babel-polyfill --recursive"
   },
   "repository": {
